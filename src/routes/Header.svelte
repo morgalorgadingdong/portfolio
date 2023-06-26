@@ -1,8 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-
-    
-
     export let currentPage
 
     function changePage(page) {

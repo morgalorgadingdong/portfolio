@@ -1,9 +1,12 @@
 
 @font-face {
-    font-family: 'Alta';
-    src: url('fonts/Alta_regular.otf');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'Gilroy';
+    src: url('fonts/Gilroy-ExtraBold.otf');
+    
+  }
+  @font-face {
+    font-family: 'MuseoSans';
+    src: url('fonts/MuseoSans');
   }
   @font-face {
     font-family: 'Cormorant-Garamond';
@@ -41,15 +44,29 @@
     --animation-duration: 18s;
     --animation-offset: 1s;
 
-    --font-header: 'Graphik', serif;
+    --font-header: 'Gilroy', serif;
     --box-border-radius: 5px;
     --box-shadow-depth: 8px;
 
-    --color-primary: #000000;
+    --color-primary: #545454;
     /* --color-background: #cdcecf; */
     --color-background-about: #cdcecf;
 }
 
+
+h1 {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0;
+    padding: 0;
+}
+
+h2, h3, h4, h5, h6, li {
+  font-family: var(--font-header);
+  text-transform: uppercase;
+}
 
 
 html, body {
@@ -59,12 +76,32 @@ html, body {
   overflow-x: hidden;
 }
 
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
 #body {
   background: linear-gradient(135deg, white ,var(--color-background));
   position: relative;
   width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
+  /* min-height: 100vh; */
+  height: fit-content;
 }
 
 #projects, #about, #resume {
