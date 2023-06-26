@@ -1,6 +1,5 @@
 <script>
     import { page } from '$app/stores';
-    import logo from '$lib/img/logo.png';
     import { onMount } from 'svelte';
 
     import About from './About.svelte';
