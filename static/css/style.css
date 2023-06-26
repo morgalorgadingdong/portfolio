@@ -1,0 +1,95 @@
+
+@font-face {
+    font-family: 'Alta';
+    src: url('fonts/Alta_regular.otf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Cormorant-Garamond';
+    src: url('fonts/CormorantGaramond-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'EB-Garamond';
+    src: url('fonts/EBGaramond-VariableFont_wght.ttf');
+    font-weight: 400 800;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Playfair';
+    src: url('fonts/PlayfairDisplay-VariableFont_wght.ttf');
+    font-weight: 400 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('fonts/Inter/Inter-VariableFont_slnt\,wght.ttf');
+    font-weight: 400 900;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Graphik';
+    src: url('../fonts/GraphikLCG-Light.ttf');
+    font-weight: 400 900;
+    font-style: normal;
+  }
+
+* {
+    --offset: 1vh;
+    --animation-duration: 18s;
+    --animation-offset: 1s;
+
+    --font-header: 'Graphik', serif;
+    --box-border-radius: 5px;
+    --box-shadow-depth: 8px;
+
+    --color-primary: #000000;
+    /* --color-background: #cdcecf; */
+    --color-background-about: #cdcecf;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: fit-content;
+  overflow-x: hidden;
+}
+
+#body {
+  background: linear-gradient(135deg, white ,var(--color-background));
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+
+#projects, #about, #resume {
+  width: 100vw;
+  width: 100svw;
+  min-height: 100vh;
+  min-height: 100svh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+#home {
+  transform: translateX(100%);
+  transition: all 0.5s ease-in-out;
+}
+
+#about {
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in-out;
+}
+
+#home.active, #about.active {
+  transform: translateX(0);
+  transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+    text-decoration: none;
+}

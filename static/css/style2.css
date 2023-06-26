@@ -1,0 +1,41 @@
+#the-body {
+  background: linear-gradient(135deg, white ,var(--color-background));
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+}
+
+#home, #about {
+  width: 100vw;
+  width: 100svw;
+  min-height: 100vh;
+  min-height: 100svh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#about {
+  
+}
+
+
+#home {
+  transform: translateX(100%);
+  transition: all 0.5s ease-in-out;
+}
+
+#about {
+  transform: translateX(-100%);
+  transition: all 0.5s ease-in-out;
+}
+
+#home.active, #about.active {
+  transform: translateX(0);
+  transition: all 0.5s ease-in-out;
+}
+
+header {
+  width: 100%;
+}
+  
