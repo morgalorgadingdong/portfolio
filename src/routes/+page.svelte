@@ -69,7 +69,7 @@ function navigateToResumePage() {
 
 </script>
 <header class="col-12 d-flex justify-content-center flex-wrap">
-    <h1 class="col-12 text-center">Morgan Folz</h1>
+    <h1 class="col-12 text-center">TEST</h1>
     <ul class="col-12 ">
         <li on:click={() => navigateToAboutPage()} class="text-center left">About</li>
         <li on:click={() => navigateToProjectsPage()} class="text-center centered">Projects</li>
@@ -79,7 +79,7 @@ function navigateToResumePage() {
         <div id="underline" class="col-3 col-xl-2"></div>
     </div>
 </header>
-<div id="body" class="col-12">
+<div id="body" class="">
     <div id="about" class="page d-flex justify-content-center">
         <h2>
             About
@@ -130,13 +130,8 @@ function navigateToResumePage() {
         transition: all 0.5s ease;
         max-width: 100px !important;
     }
-    #body {
-        background: linear-gradient(135deg, white ,var(--color-background));
-        position: relative;
-        width: 100vw;
-        height: fit-content;
-        /* overflow: hidden; */
-    }
+    
+
 
     #projects, #about, #resume {
         width: 100vw;
@@ -147,6 +142,10 @@ function navigateToResumePage() {
         top: 0;
         left: 0;
         transition: transform 0.5s ease;
+    }
+
+    #about, #resume {
+        opacity: 0;
     }
 
     li {
