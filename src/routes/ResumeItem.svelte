@@ -13,7 +13,7 @@
 
         <div class="d-flex justify-content-start">
             <img src="./img/arrow.svg" alt="arrow" class="arrow">
-            <h3 class="text-start">{item.title}</h3>
+            <h3 class="text-start"><b>{item.title}</b> at {item.company}</h3>
         </div>
         <h3 class="text-end">{item.start} - {item.end}</h3>
 
@@ -58,6 +58,15 @@
 
 
 <style>
+
+    b {
+        color: var(--color-primary);
+    }
+
+    .item {
+        padding: 1.5rem 0;
+        border-bottom: 1px solid var(--color-primary);
+    }
 
 h3 {
     margin-bottom: 0;

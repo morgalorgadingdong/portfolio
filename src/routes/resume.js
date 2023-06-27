@@ -73,8 +73,8 @@ export const resume = [
                 id: '6',
                 company: 'General Motors',
                 title: 'TRACK Engineer',
-                start: '2019',
-                end: '2021',
+                start: '2017',
+                end: '2019',
                 description: 'A website for a bicycle touring company in Oregon.',
                 skills: [
                     'Web design',
