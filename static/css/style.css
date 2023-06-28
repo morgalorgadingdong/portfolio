@@ -2,7 +2,10 @@
 @font-face {
     font-family: 'Gilroy';
     src: url('../fonts/Gilroy-ExtraBold.otf');
-    
+  }
+  @font-face {
+    font-family: 'Gilroy-Light';
+    src: url('../fonts/Gilroy-Light.otf');
   }
   @font-face {
     font-family: 'MuseoSans';
@@ -45,13 +48,16 @@
     --animation-offset: 1s;
 
     --font-header: 'Gilroy';
+    --font-header-light: 'Gilroy-Light';
     --box-border-radius: 5px;
     --box-shadow-depth: 8px;
 
     --color-primary: #545454;
     /* --color-background: #cdcecf; */
     --color-background-about: #cdcecf;
+    --color-background: #dedbd8;
 }
+
 
 
 h1 {
@@ -63,17 +69,31 @@ h1 {
     padding: 0;
 }
 
-h2, h3, h4, h5, h6, li {
-  font-family: var(--font-header);
-  text-transform: uppercase;
+h4 {
+  font-weight: 400;
 }
 
+
+h2, h3, h4, h5, h6, li {
+  font-family: var(--font-header-light);
+  text-transform: uppercase;
+  color: var(--color-primary) !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  
+}
 
 html, body {
   /* position: relative;
   width: 100vw;
   height: fit-content; */
   overflow-x: hidden;
+}
+
+body {
+  overflow-y: hidden;
 }
 
 
@@ -87,6 +107,7 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  background: linear-gradient(135deg, white , var(--color-background));
 }
 
 main {
@@ -97,7 +118,7 @@ main {
 }
 
 #body {
-  background: linear-gradient(135deg, white ,var(--color-background));
+  
   position: relative;
   width: 100vw;
   /* min-height: 100vh; */

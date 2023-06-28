@@ -8,18 +8,34 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div on:click={toggle} aria-expanded={isOpen} class="d-flex justify-content-between item flex-wrap">
+<div on:click={toggle} aria-expanded={isOpen} class="d-flex justify-content-between item flex-wrap py-5">
     {#if item.company}
 
         <div class="d-flex justify-content-start">
             <img src="./img/arrow.svg" alt="arrow" class="arrow">
             <h3 class="text-start"><b>{item.title}</b> at {item.company}</h3>
         </div>
-        <h3 class="text-end">{item.start} - {item.end}</h3>
+        
+        <h3 class="col-12 col-lg-auto text-end">{item.start} - {item.end}</h3>
 
         {#if isOpen}
-        <ul transition:slide={{ duration: 500 }} class="col-12">
-            <p>{item.description}</p>
+        <ul transition:slide={{ duration: 500 }} class="col-12 pt-3">
+            {#each item.description as description}
+            {#if description.bold}    
+                <p class="mb-0">
+                    <b>{description.text}</b>
+                </p>
+            {:else}
+                <p class="mt-0">
+                    {description.text}
+                </p>
+            {/if}
+                
+            {/each}
+            <div class="d-flex justify-content-start flex-wrap">
+                {#each item.skills as skill}
+                    <span class="skill-tag">{skill}</span>
+                {/each}
         </ul>
         {/if}
     {:else if item.skill}
@@ -58,6 +74,13 @@
 
 
 <style>
+
+    .skill-tag {
+        margin: 0.5rem 0.25rem;
+        border: solid 1px var(--color-primary);
+        border-radius: 5px;
+        padding: 0.25rem;
+    }
 
     b {
         color: var(--color-primary);
@@ -102,7 +125,8 @@ ul {
 }
 
 ul > p {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-top: 1rem;
 }
 
 </style>

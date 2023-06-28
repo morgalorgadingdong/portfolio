@@ -5,6 +5,7 @@ export const projects = [
         nickname: 'oba',
         description: 'A website for a bicycle touring company in Oregon.',
         date: '2023',
+        url: 'https://oregonbicycleadventures.com',
         stack: [
             'Sveltekit',
             'TypeScript',
@@ -32,6 +33,7 @@ export const projects = [
         description: 'A simple static website for a web design and development company.',
         date: '2023',
         pictures: 0,
+        url: 'https://giddyup.digital',
         stack: [
             'HTML',
             'CSS',
@@ -54,6 +56,7 @@ export const projects = [
         description: 'A website for a beauty salon.',
         date: '2023',
         pictures: 0,
+        url: 'https://madaesthetics.co',
         stack: [
             'Node.js',
             'Express.js',
@@ -80,6 +83,7 @@ export const projects = [
         description: 'A website for a Real Estate Company.',
         date: '2022',
         pictures: 0,
+        url: 'https://folzteamrealestate.com',
         stack: [
             'Sveltekit',
             'TypeScript',
@@ -121,6 +125,7 @@ export const projects = [
         description: 'A website for a Custom Van Company',
         date: '2022',
         pictures: 0,
+        url: 'https://cabinrental.netlify.app/',
         stack: [
             'HTML',
             'CSS',

@@ -4,7 +4,6 @@
     import About from './About.svelte';
     import Projects from './Projects.svelte';
     import Resume from './Resume.svelte';
-    import currentPage from './Header.svelte';
     
 
 let projectsPage;
@@ -13,29 +12,44 @@ let resumePage;
 let underline;
 let body;
 let height;
+let documentBody;
 
 let underlineWidth;
 let underlineOffset;
-let underlineLeft;
-let underlineRight;
+
+let projectHeight;
+let aboutHeight;
+let resumeHeight;
+let header;
+let headerHeight;
+
 
 onMount(() => {
     projectsPage = document.getElementById("projects");
     aboutPage = document.getElementById("about");
     resumePage = document.getElementById("resume");
     underline = document.getElementById("underline");
-    
+    header = document.getElementById("header");
+
     underlineWidth = 90;
     underlineOffset = underlineWidth / 2;
 
     body = document.getElementById("body");
+    documentBody = document.body;
     aboutPage.style.opacity = "0";
     resumePage.style.opacity = "0";
     aboutPage.style.transform = "translateX(-100%)";
     resumePage.style.transform = "translateX(100%)";
     
-    height = projectsPage.scrollHeight;
-    body.style.height = height + 'px';
+    projectHeight = projectsPage.scrollHeight;
+    aboutHeight = aboutPage.scrollHeight;
+    resumeHeight = resumePage.scrollHeight;
+    headerHeight = header.scrollHeight;
+
+
+    body.style.height = projectHeight + 'px';
+    height = projectHeight + headerHeight;
+    documentBody.style.height = `calc(6rem + ${height}px`;
     console.log(height);
     
 });
@@ -48,9 +62,12 @@ function navigateToProjectsPage() {
     resumePage.style.transform = "translateX(100%)";
     underline.style.left = "50%";
 
-    height = projectsPage.scrollHeight;
-    body.style.height = height + 'px';
-    console.log(projectsPage);
+
+    body.style.height = projectHeight + 'px';
+    
+    let height = projectHeight + headerHeight;
+    documentBody.style.height = `calc(6rem + ${height}px`;
+    console.log(body.style.height);
     
 }
 
@@ -60,17 +77,20 @@ function navigateToAboutPage() {
         projectsPage.style.transform = "translateX(100%)";
         aboutPage.style.transform = "translateX(0)";
         resumePage.style.transform = "translateX(200%)";
-        underline.style.left = underlineOffset + 'px';
-        console.log(underline.style.left)
-
-        height = aboutPage.scrollHeight;
-        body.style.height = height + 'px';
-        console.log(height);
-        // underline.style.transform = "translateX(-200%)";
-
         
-    
-    
+        if (window.screen.width < 1200) {
+            underline.style.left = `calc(0.4rem + ${underlineOffset}px`;
+        } else {
+            underline.style.left = `calc(${underlineOffset}px - 11px)`;
+        }
+
+        // console.log(aboutPage)
+        // height = aboutPage.scrollHeight;
+        body.style.height = aboutHeight + 'px';
+        let height = aboutHeight + headerHeight;
+        documentBody.style.height = `calc(6rem + ${height}px`;
+        console.log(body.style.height);
+        // underline.style.transform = "translateX(-200%)";
 }
 
 function navigateToResumePage() {
@@ -80,59 +100,145 @@ function navigateToResumePage() {
     aboutPage.style.transform = "translateX(-200%)";
     resumePage.style.transform = "translateX(0)";
         
-    underline.style.left = `calc(100% -  ${underlineOffset}px`;
+
+    if (window.screen.width < 1200) {
+        underline.style.left = `calc(100% -  ${underlineOffset}px - 0.4rem)`;
+        } else {
+            underline.style.left = `calc(100% -  ${underlineOffset}px + 11px)`;
+        }
+    
         
-        height = projectsPage.scrollHeight;
-        body.style.height = height + 'px';
+        
+        body.style.height = resumeHeight + 'px';
+        let height = resumeHeight + headerHeight;
+        documentBody.style.height = `calc(6rem + ${height}px`;
+        console.log(body.style.height);
         
     
 }
     // Header passes up current page
     
+    function scrollToBottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
 
 </script>
 
-<header class="col-12 col-xl-8 d-flex justify-content-center flex-wrap mb-5">
-    <h1 class="col-12 text-center">Portfolio</h1>
-    <ul class="col-12 px-0">
-        <a on:click={() => navigateToAboutPage()} class="text-center left"><li><h2>About</h2></li></a>
-        <a on:click={() => navigateToProjectsPage()} class="text-center centered"><li><h2>Projects</h2></li></a>
-        <a on:click={() => navigateToResumePage()} class="text-center right"><li ><h2>Resume</h2></li></a>
+<div on:click={() => scrollToBottom()} id="contact" class="d-flex">
+    <p class="px-3">contact</p>
+    <i class="fa-regular fa-message"></i>
+</div>
+
+<header id="header" class="col-12 col-xl-10 d-flex justify-content-center flex-wrap mb-5">
+    <div id="headline-container" class="col-12 px-3 px-xl-0 d-flex justify-content-start flex-wrap">
+        <h1 class="text-start">Morgan Folz</h1>
+        <ul class="d-flex flex-wrap justify-content-start align-content-center align-items-start">
+            <li class="col-12">designer</li>
+            <li class="col-12">developer</li>
+            <li class="col-12">coach</li>
+        </ul>
+    </div>
+    
+    <ul class="col-12 px-3 px-xl-0 mt-3">
+        <a on:click={() => navigateToAboutPage()} class="text-center left nav-item"><li><h2>About</h2></li></a>
+        <a on:click={() => navigateToProjectsPage()} class="text-center centered nav-item"><li><h2>Projects</h2></li></a>
+        <a on:click={() => navigateToResumePage()} class="text-center right nav-item"><li ><h2>Resume</h2></li></a>
     </ul>
     <div id="underline-container" class="col-12 d-flex justify-content-center">
         <div id="underline" class=""></div>
     </div>
 </header>
-<div id="body" class="">
-    <div id="about" class="page d-flex justify-content-center">
+<div id="body" class="mt-5">
+    <div id="about" class="page d-flex justify-content-center flex-wrap">
         <About />
     </div>
-    <div id="projects" class="page d-flex justify-content-center">
+    <div id="projects" class="page d-flex justify-content-center flex-wrap">
         <Projects />
     </div>
-    <div id="resume" class="page d-flex justify-content-center">
+    <div id="resume" class="page d-flex justify-content-center flex-wrap">
             <Resume />
     </div>
 </div>
 
 <style>
+    i {
+        font-size: 1.5rem;
+    }
+
+    #contact > p {
+        transform: translateX(2rem);
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    #contact {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    #contact:hover {
+        cursor: pointer;
+    }
+
+    #contact:hover p {
+        transform: translateX(0);
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .tagline {
+        font-style: italic;
+        font-size: 2.3rem;
+        /* margin: 1rem auto 5rem auto; */
+        text-transform: lowercase;
+        /* font-weight: 300; */
+        color: var(--color-primary);
+    }
     li > h2 {
         font-size: 1.2rem;
+        
 
     }
     
+    #headline-container {
+        padding-top: 5rem;
+        padding-bottom: 3rem; 
+    }
+
+    #headline-container > ul {
+        row-gap: 0rem;
+        border-left: solid 2px var(--color-primary);
+        padding-left: 1rem
+    }
+
+    #headline-container > ul > li {
+        font-size: 1.5rem;
+        font-weight: 300;
+        line-height: 1.5rem;
+        text-transform: lowercase;
+        color: var(--color-primary);
+        
+        font-style: italic;
+    }
+
     header h1 {
-        font-size: 3rem;
+        font-size: 5rem;
+        line-height: 5rem;
         font-weight: 700;
         color: var(--color-primary);
-        margin: 5rem auto;
+        height: fit-content;
+        /* padding-bottom: 0.5rem;
+        border-bottom: solid 2px var(--color-primary); */
+        text-transform: uppercase;
+        padding-right: 1rem;
     }
 
 
     ul {
         display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  grid-gap: 1rem;
+        grid-template-columns: 1fr auto 1fr;
+        grid-gap: 1rem;
     }
 
     ul > .left {
@@ -188,8 +294,10 @@ function navigateToResumePage() {
         list-style: none;
     }
 
-    li:hover {
+    .nav-item:hover {
         cursor: pointer;
     }
+
+
 
 </style>
