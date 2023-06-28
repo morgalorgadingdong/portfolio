@@ -24,6 +24,7 @@ let header;
 let headerHeight;
 
 
+
 onMount(() => {
     projectsPage = document.getElementById("projects");
     aboutPage = document.getElementById("about");
@@ -41,16 +42,18 @@ onMount(() => {
     aboutPage.style.transform = "translateX(-100%)";
     resumePage.style.transform = "translateX(100%)";
     
-    projectHeight = projectsPage.scrollHeight;
-    aboutHeight = aboutPage.scrollHeight;
-    resumeHeight = resumePage.scrollHeight;
-    headerHeight = header.scrollHeight;
+    projectHeight = projectsPage.offsetHeight;
+    aboutHeight = aboutPage.offsetHeight;
+    resumeHeight = resumePage.offsetHeight;
+    headerHeight = header.offsetHeight;
 
 
     body.style.height = projectHeight + 'px';
     height = projectHeight + headerHeight;
-    documentBody.style.height = `calc(6rem + ${height}px`;
-    console.log(height);
+    // documentBody.style.height = `calc(6rem + ${height}px`;
+    console.log('Header Height:', headerHeight);
+    console.log('Project Height:', projectHeight);
+    console.log('Body Height:', documentBody.style.height);
     
 });
 
@@ -66,8 +69,10 @@ function navigateToProjectsPage() {
     body.style.height = projectHeight + 'px';
     
     let height = projectHeight + headerHeight;
-    documentBody.style.height = `calc(6rem + ${height}px`;
-    console.log(body.style.height);
+    // documentBody.style.height = `calc(6rem + ${height}px`;
+    console.log('Header Height:', headerHeight);
+    console.log('Project Height:', projectHeight);
+    console.log('Body Height:', documentBody.style.height);
     
 }
 
@@ -85,11 +90,13 @@ function navigateToAboutPage() {
         }
 
         // console.log(aboutPage)
-        // height = aboutPage.scrollHeight;
+        // height = aboutPage.offsetHeight;
         body.style.height = aboutHeight + 'px';
         let height = aboutHeight + headerHeight;
-        documentBody.style.height = `calc(6rem + ${height}px`;
-        console.log(body.style.height);
+        // documentBody.style.height = `calc(6rem + ${height}px`;
+        console.log('Header Height:', headerHeight);
+        console.log('About Height:', aboutHeight);
+        console.log('Body Height:', documentBody.style.height);
         // underline.style.transform = "translateX(-200%)";
 }
 
@@ -111,15 +118,17 @@ function navigateToResumePage() {
         
         body.style.height = resumeHeight + 'px';
         let height = resumeHeight + headerHeight;
-        documentBody.style.height = `calc(6rem + ${height}px`;
-        console.log(body.style.height);
+        // documentBody.style.height = `calc(6rem + ${height}px`;
+        console.log('Header Height:', headerHeight);
+        console.log('Resume Height:', resumeHeight);
+        console.log('Body Height:', documentBody.style.height);
         
     
 }
     // Header passes up current page
     
     function scrollToBottom() {
-        window.scrollTo(0, document.body.scrollHeight);
+        window.scrollTo(0, document.body.offsetHeight);
     }
 
 </script>
@@ -135,7 +144,7 @@ function navigateToResumePage() {
         <ul class="d-flex flex-wrap justify-content-start align-content-center align-items-start">
             <li class="col-12">designer</li>
             <li class="col-12">developer</li>
-            <li class="col-12">coach</li>
+            <li class="col-12">problem solver</li>
         </ul>
     </div>
     
