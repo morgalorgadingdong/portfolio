@@ -27,6 +27,10 @@ let headerHeight;
 
 let currentPage;
 
+let introOverlay
+let loaderLine
+let loaderLineMask
+
 function updateHeight() {
     if (currentPage == 'projects') {
         projectHeight = projectsPage.offsetHeight;
@@ -48,7 +52,7 @@ function updateHeight() {
 
     } 
     setTimeout(() => {
-                updateHeight()
+                scrollFunction()
             }
                 , 500)
 }
@@ -78,13 +82,32 @@ onMount(() => {
     height = projectHeight + headerHeight;
     currentPage = 'projects';
     // documentBody.style.height = `calc(6rem + ${height}px`;
-    console.log('Header Height:', headerHeight);
-    console.log('Project Height:', projectHeight);
-    console.log('Body Height:', documentBody.style.height);
+    // console.log('Header Height:', headerHeight);
+    // console.log('Project Height:', projectHeight);
+    // console.log('Body Height:', documentBody.style.height);
+    
+    introOverlay = document.getElementById("intro-overlay");
+    loaderLine = document.getElementById("loader-line");
+    loaderLineMask = document.getElementById("loader-line-mask");
+    
+
+    setTimeout(() => {
+        // loaderLine.style.height = 0
+        // loaderLine.style.width = 0
+        // loaderLineMask.style.height = 0
+        loaderLineMask.style.width = 0
+        setTimeout(() => {
+        introOverlay.style.opacity = "0";
+        introOverlay.style.zIndex = "-1";
+            }, 300);
+    }, 500);
+
+    
+
     setTimeout(() => {
             updateHeight()
         }
-            , 500)
+            , 250)
 
 });
 
@@ -160,16 +183,67 @@ function navigateToResumePage() {
     
 }
     // Header passes up current page
-    
+    function revealPage() {
+
+    }
+
+
     function scrollToBottom() {
         window.scrollTo(0, document.body.offsetHeight);
     }
 
+    function scrollToTop() {
+        window.scrollTo(0, 0);
+        // document.getElementById("scrollToTop").style.opacity = 0;
+    }
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("scrollToTop").style.opacity = 1;
+        } else {
+            document.getElementById("scrollToTop").style.opacity = 0;
+        }
+        updateHeight(() => {
+                scrollFunction()
+            }
+                , 250)
+    }
+
+    // create a loading bar
+    // function createLoadingBar() {
+    //     let loadingBar = document.createElement("div");
+    //     loadingBar.id = "loading-bar";
+    //     loadingBar.style.width = "0%";
+    //     loadingBar.style.height = "100%";
+    //     loadingBar.style.backgroundColor = "black";
+    //     loadingBar.style.position = "absolute";
+    //     loadingBar.style.top = "0";
+    //     loadingBar.style.left = "0";
+    //     loadingBar.style.zIndex = "1000";
+    //     loadingBar.style.transition = "width 0.5s ease-in-out";
+    //     document.body.appendChild(loadingBar);
+    // }
+
+
 </script>
+
+<div id="intro-overlay">
+    <!-- Create a loading bar -->
+    <!-- <div class="loader-circle"></div> -->
+    <div id="loader-line-mask">
+      <div id="loader-line"></div>
+    </div>
+
+    <!-- <h2>Morgan Folz</h2> -->
+</div>
 
 <div on:click={() => scrollToBottom()} id="contact" class="d-flex">
     <p class="px-3">contact</p>
     <i class="fa-regular fa-message"></i>
+</div>
+
+<div id="scrollToTop" on:click={() => scrollToTop()} >
+    <i class="fa-solid fa-angle-up"></i>
 </div>
 
 <header id="header" class="col-12 col-xl-10 d-flex justify-content-center flex-wrap mb-5">
@@ -204,6 +278,75 @@ function navigateToResumePage() {
 </div>
 
 <style>
+    #loader-circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.1);
+  margin-left: -60px;
+  margin-top: -60px;
+  /* // .animation(fade 1.2s infinite ease-in-out); */
+}
+
+#loader-line-mask {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 60px;
+  height: 120px;
+  margin-left: -60px;
+  margin-top: -60px;
+  overflow: hidden;
+  transform-origin: 60px 60px;
+  
+  animation: rotate 1.2s infinite linear;
+  transition: all 0.25s ease-in-out;
+}
+
+/* -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,0)); */
+
+#loader-line {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.5);
+    transition: all 0.25s ease-in-out;
+  }
+
+  @keyframes rotate { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);}}
+
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-primary);
+    z-index: 100;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+    #scrollToTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        font-size: 2rem;
+        color: var(--color-primary);
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        z-index: 10;
+    }
+
+    #scrollToTop:hover {
+        cursor: pointer;
+    }
+
     i {
         font-size: 1.5rem;
     }
@@ -265,16 +408,21 @@ function navigateToResumePage() {
         font-style: italic;
     }
 
-    header h1 {
+    header h1, #intro-overlay h2 {
         font-size: 5rem;
         line-height: 5rem;
         font-weight: 700;
-        color: var(--color-primary);
+        
         height: fit-content;
         /* padding-bottom: 0.5rem;
         border-bottom: solid 2px var(--color-primary); */
         text-transform: uppercase;
         padding-right: 1rem;
+    }
+
+    #intro-overlay h2 {
+        color: var(--color-background);
+        z-index: 101;
     }
 
 

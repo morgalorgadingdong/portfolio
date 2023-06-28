@@ -64,7 +64,7 @@ h1 {
     font-family: var(--font-header);
     font-size: 3rem;
     font-weight: 800;
-    color: var(--color-primary);
+    color: var(--color-primary) !important;
     margin: 0;
     padding: 0;
 }
