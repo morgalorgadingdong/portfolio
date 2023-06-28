@@ -4,7 +4,9 @@
     import About from './About.svelte';
     import Projects from './Projects.svelte';
     import Resume from './Resume.svelte';
-    
+
+
+  
 
 let projectsPage;
 let aboutPage;
@@ -23,6 +25,33 @@ let resumeHeight;
 let header;
 let headerHeight;
 
+let currentPage;
+
+function updateHeight() {
+    if (currentPage == 'projects') {
+        projectHeight = projectsPage.offsetHeight;
+        body.style.height = projectHeight + 'px';
+        // let height = projectHeight + headerHeight;
+        // documentBody.style.height = `calc(6rem + ${height}px`;
+
+    } else if (currentPage == 'about') {
+        aboutHeight = aboutPage.offsetHeight;
+        body.style.height = aboutHeight + 'px';
+        // let height = aboutHeight + headerHeight;
+        // documentBody.style.height = `calc(6rem + ${height}px`;
+
+    } else if (currentPage == 'resume') {
+        resumeHeight = resumePage.offsetHeight;
+        body.style.height = resumeHeight + 'px';
+        // let height = resumeHeight + headerHeight;
+        // documentBody.style.height = `calc(6rem + ${height}px`;
+
+    } 
+    setTimeout(() => {
+                updateHeight()
+            }
+                , 500)
+}
 
 
 onMount(() => {
@@ -41,20 +70,22 @@ onMount(() => {
     resumePage.style.opacity = "0";
     aboutPage.style.transform = "translateX(-100%)";
     resumePage.style.transform = "translateX(100%)";
-    
     projectHeight = projectsPage.offsetHeight;
     aboutHeight = aboutPage.offsetHeight;
     resumeHeight = resumePage.offsetHeight;
     headerHeight = header.offsetHeight;
-
-
     body.style.height = projectHeight + 'px';
     height = projectHeight + headerHeight;
+    currentPage = 'projects';
     // documentBody.style.height = `calc(6rem + ${height}px`;
     console.log('Header Height:', headerHeight);
     console.log('Project Height:', projectHeight);
     console.log('Body Height:', documentBody.style.height);
-    
+    setTimeout(() => {
+            updateHeight()
+        }
+            , 500)
+
 });
 
 function navigateToProjectsPage() {
@@ -67,12 +98,13 @@ function navigateToProjectsPage() {
 
 
     body.style.height = projectHeight + 'px';
-    
+    currentPage = 'projects';
+
     let height = projectHeight + headerHeight;
     // documentBody.style.height = `calc(6rem + ${height}px`;
-    console.log('Header Height:', headerHeight);
-    console.log('Project Height:', projectHeight);
-    console.log('Body Height:', documentBody.style.height);
+    // console.log('Header Height:', headerHeight);
+    // console.log('Project Height:', projectHeight);
+    // console.log('Body Height:', documentBody.style.height);
     
 }
 
@@ -92,11 +124,12 @@ function navigateToAboutPage() {
         // console.log(aboutPage)
         // height = aboutPage.offsetHeight;
         body.style.height = aboutHeight + 'px';
+        currentPage = 'about';
         let height = aboutHeight + headerHeight;
         // documentBody.style.height = `calc(6rem + ${height}px`;
-        console.log('Header Height:', headerHeight);
-        console.log('About Height:', aboutHeight);
-        console.log('Body Height:', documentBody.style.height);
+        // console.log('Header Height:', headerHeight);
+        // console.log('About Height:', aboutHeight);
+        // console.log('Body Height:', documentBody.style.height);
         // underline.style.transform = "translateX(-200%)";
 }
 
@@ -117,6 +150,7 @@ function navigateToResumePage() {
         
         
         body.style.height = resumeHeight + 'px';
+        currentPage = 'resume';
         let height = resumeHeight + headerHeight;
         // documentBody.style.height = `calc(6rem + ${height}px`;
         console.log('Header Height:', headerHeight);
