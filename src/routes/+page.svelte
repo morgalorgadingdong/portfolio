@@ -89,7 +89,7 @@ onMount(() => {
     introOverlay = document.getElementById("intro-overlay");
     loaderLine = document.getElementById("loader-line");
     loaderLineMask = document.getElementById("loader-line-mask");
-    
+
 
     setTimeout(() => {
         // loaderLine.style.height = 0
@@ -118,6 +118,7 @@ function navigateToProjectsPage() {
     aboutPage.style.transform = "translateX(-100%)";
     resumePage.style.transform = "translateX(100%)";
     underline.style.left = "50%";
+    underline.style.width = '90px';
 
 
     body.style.height = projectHeight + 'px';
@@ -134,14 +135,15 @@ function navigateToProjectsPage() {
 function navigateToAboutPage() {
     aboutPage.style.opacity = "1";
     resumePage.style.opacity = "1";
-        projectsPage.style.transform = "translateX(100%)";
-        aboutPage.style.transform = "translateX(0)";
-        resumePage.style.transform = "translateX(200%)";
-        
+    projectsPage.style.transform = "translateX(100%)";
+    aboutPage.style.transform = "translateX(0)";
+    resumePage.style.transform = "translateX(200%)";
+    underline.style.width = '60px';    
+
         if (window.screen.width < 1200) {
-            underline.style.left = `calc(0.4rem + ${underlineOffset}px`;
+            underline.style.left = `calc(0.4rem + ${underlineOffset}px - 5px)`;
         } else {
-            underline.style.left = `calc(${underlineOffset}px - 11px)`;
+            underline.style.left = `calc(${underlineOffset}px - 11px - 4px)`;
         }
 
         // console.log(aboutPage)
@@ -162,12 +164,12 @@ function navigateToResumePage() {
     projectsPage.style.transform = "translateX(-100%)";
     aboutPage.style.transform = "translateX(-200%)";
     resumePage.style.transform = "translateX(0)";
-        
+    underline.style.width = '70px';
 
     if (window.screen.width < 1200) {
         underline.style.left = `calc(100% -  ${underlineOffset}px - 0.4rem)`;
         } else {
-            underline.style.left = `calc(100% -  ${underlineOffset}px + 11px)`;
+            underline.style.left = `calc(100% -  ${underlineOffset}px + 11px - 1px)`;
         }
     
         
@@ -247,10 +249,11 @@ function navigateToResumePage() {
 </div>
 
 <header id="header" class="col-12 col-xl-10 d-flex justify-content-center flex-wrap mb-5">
-    <div id="headline-container" class="col-12 px-3 px-xl-0 d-flex justify-content-start flex-wrap">
+    <div id="headline-container" class="col-12 px-3 px-xl-0 d-flex justify-content-start justify-content-md-center flex-wrap">
         <h1 class="text-start">Morgan Folz</h1>
-        <ul class="d-flex flex-wrap justify-content-start align-content-center align-items-start">
-            <li class="col-12">designer</li>
+        <!-- <ul class="d-flex flex-wrap justify-content-start align-content-center align-items-start"> -->
+        <ul class="d-flex flex-wrap flex-column">
+            <li class="col-12">designer </li>
             <li class="col-12">developer</li>
             <li class="col-12">problem solver</li>
         </ul>
@@ -395,7 +398,8 @@ function navigateToResumePage() {
     #headline-container > ul {
         row-gap: 0rem;
         border-left: solid 2px var(--color-primary);
-        padding-left: 1rem
+        padding-left: 1rem;
+        width: fit-content;
     }
 
     #headline-container > ul > li {
@@ -490,5 +494,11 @@ function navigateToResumePage() {
     }
 
 
+    @media (max-width: 375px) {
+        header h1 {
+            font-size: calc(100vw / 75 * 16);
+            line-height: calc(100vw / 75 * 16);
+        }
+    }
 
 </style>

@@ -3,6 +3,7 @@
 	let isOpen = false
 	const toggle = () => isOpen = !isOpen
     export let item;
+    let imgSrc = `./img/resume/${item.nickname}.jpg`;
 </script>
 
 
@@ -11,7 +12,7 @@
 <div on:click={toggle} aria-expanded={isOpen} class="d-flex justify-content-between item flex-wrap py-5">
     {#if item.company}
 
-        <div class="d-flex justify-content-start">
+        <div class="d-flex justify-content-start col-12 col-md-4 px-0">
             <img src="./img/arrow.svg" alt="arrow" class="arrow">
             <h3 class="text-start"><b>{item.title}</b> at {item.company}</h3>
         </div>
@@ -19,23 +20,53 @@
         <h3 class="col-12 col-lg-auto text-end">{item.start} - {item.end}</h3>
 
         {#if isOpen}
-        <ul transition:slide={{ duration: 500 }} class="col-12 pt-3">
-            {#each item.description as description}
-            {#if description.bold}    
-                <p class="mb-0">
-                    <b>{description.text}</b>
-                </p>
+        <ul transition:slide={{ duration: 500 }} class="col-12 pt-3 px-0 d-flex flex-wrap">
+            {#if item.picture}
+                <div class="col-12 col-lg-4 my-3 px-3">
+                    <img src={imgSrc} alt="company logo" class="img-fluid">
+                </div>
+                <div class="col-12 col-md-8 my-md-3 px-3">
+                {#each item.description as description}
+                       
+                    {#if description.bold}    
+                        <p class="mb-0">
+                            <b>{description.text}</b>
+                        </p>
+                    {:else}
+                        <p class="mt-0">
+                            {description.text}
+                        </p>
+                    {/if}
+                    
+                {/each}
+                <div class="d-flex justify-content-start flex-wrap">
+                    {#each item.skills as skill}
+                        <span class="skill-tag">{skill}</span>
+                    {/each}
+                </div>
+             </div>
             {:else}
-                <p class="mt-0">
-                    {description.text}
-                </p>
-            {/if}
+            <div class="col-12 px-3">
+            {#each item.description as description}
+                
+                {#if description.bold}    
+                    <p class="mb-0">
+                        <b>{description.text}</b>
+                    </p>
+                {:else}
+                    <p class="mt-0">
+                        {description.text}
+                    </p>
+                {/if}
                 
             {/each}
-            <div class="d-flex justify-content-start flex-wrap">
-                {#each item.skills as skill}
-                    <span class="skill-tag">{skill}</span>
-                {/each}
+                <div class="d-flex justify-content-start flex-wrap">
+                    {#each item.skills as skill}
+                        <span class="skill-tag">{skill}</span>
+                    {/each}
+                </div>
+            </div>
+            {/if}
         </ul>
         {/if}
     {:else if item.skill}
@@ -47,6 +78,11 @@
         {#if isOpen}
         <ul transition:slide={{ duration: 500 }} class="col-12">
             <p>{item.description}</p>
+            <div class="d-flex justify-content-start flex-wrap">
+            {#each item.tools as tool}
+                        <span class="skill-tag">{tool}</span>
+            {/each}
+        </div>
         </ul>
         {/if}
     {:else if item.school}
@@ -62,8 +98,43 @@
         
 
         {#if isOpen}
-        <ul transition:slide={{ duration: 500 }} class="col-12">
-            <p>{item.description}</p>
+        <ul transition:slide={{ duration: 500 }} class="col-12 pt-3 px-0 d-flex flex-wrap">
+            {#if item.picture}
+                <div class="col-12 col-lg-4 my-3 px-3">
+                    <img src={imgSrc} alt="company logo" class="img-fluid">
+                </div>
+                <div class="col-12 col-md-8 my-md-3 px-3">
+                {#each item.description as description}
+                       
+                    {#if description.bold}    
+                        <p class="mb-0">
+                            <b>{description.text}</b>
+                        </p>
+                    {:else}
+                        <p class="mt-0">
+                            {description.text}
+                        </p>
+                    {/if}
+                    
+                {/each}
+             </div>
+            {:else}
+            <div class="col-12 px-3">
+            {#each item.description as description}
+                
+                {#if description.bold}    
+                    <p class="mb-0">
+                        <b>{description.text}</b>
+                    </p>
+                {:else}
+                    <p class="mt-0">
+                        {description.text}
+                    </p>
+                {/if}
+                
+            {/each}
+            </div>
+            {/if}
         </ul>
     {/if}
 
@@ -74,6 +145,13 @@
 
 
 <style>
+
+    ul img {
+        max-height: 200px;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+    }
 
     .skill-tag {
         margin: 0.5rem 0.25rem;

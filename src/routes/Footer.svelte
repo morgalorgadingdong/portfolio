@@ -37,7 +37,7 @@
     }
     
     footer {
-        background-color: var(--color-background);
+        /* background-color: var(--color-background); */
     }
 
     img {

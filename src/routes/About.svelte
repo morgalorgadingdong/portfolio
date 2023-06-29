@@ -5,7 +5,7 @@
 
 </script>
 
-<div class="col-12 d-flex flex-wrap px-0">
+<div class="col-12 d-flex flex-wrap px-0 justify-content-center">
     <div id="" class="col-12 col-xl-10 d-flex justify-content-center">
         <div class="col-12 col-md-8 px-3 px-md-0 d-flex justify-content-start flex-wrap align-content-start">
             <img src="./img/introduction-text.png" alt="Hello, my name is Morgan" class="col-10 col-sm-8 my-3">
