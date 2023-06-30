@@ -364,6 +364,7 @@ function navigateToResumePage() {
         position: absolute;
         top: 2rem;
         right: 2rem;
+        color: var(--color-primary);
     }
 
     #contact:hover {
