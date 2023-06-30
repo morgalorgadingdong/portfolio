@@ -75,7 +75,7 @@ export const resume = [
             {
                 id: '4',
                 company: 'Mt. Bachelor Ski Resort',
-                title: 'Snowboard Bike Coach',
+                title: 'Snowboard Coach',
                 start: '2022',
                 end: '2023',
                 description: [{

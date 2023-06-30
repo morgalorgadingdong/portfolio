@@ -17,7 +17,7 @@
     .img-container {
         width: 100%;
         aspect-ratio: 558 / 294;
-        border-radius: 15px;
+        border-radius: 2.107526882% / 4%;
         /* box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5); */
         overflow: hidden;
         position: relative;
