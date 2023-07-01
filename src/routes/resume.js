@@ -5,7 +5,7 @@ export const resume = [
             {
                 id: '1',
                 company: 'Giddyup Digital',
-                title: 'Owner, Web Designer & Developer',
+                title: 'Web Designer & Developer',
                 nickname: 'giddyup',
                 start: '2022',
                 end: 'Present',
@@ -29,30 +29,30 @@ export const resume = [
                     'UI/UX'
                 ]
             },
-            {
-                id: '2',
-                company: 'Oregon Bicycle Adventures',
-                title: 'Co-Owner & Guide',
-                nickname: 'oba',
-                start: '2023',
-                end: 'Present',
-                picture: true,
-                description: [
-                    {
-                    bold: false,
-                    text: 'Started a bicycle guiding business with a good friend. Helped draft the business strategy, define the brand, and led tours throughout Central Oregon. Acted as the technical/design/marketing lead; built the website, integrated booking software from FareHarbor, designed marketing materials, and created and ran the Google SEM campaign.'}
-                ],
-                skills: [
-                    'Web design & development',
-                    'Branding',
-                    'Graphic design',
-                    'Marketing',
-                    'SEO',
-                    'Google analytics',
-                    'Copywriting',
-                    'Tour guide'
-                ]
-            },
+            // {
+            //     id: '2',
+            //     company: 'Oregon Bicycle Adventures',
+            //     title: 'Co-Owner & Guide',
+            //     nickname: 'oba',
+            //     start: '2023',
+            //     end: 'Present',
+            //     picture: true,
+            //     description: [
+            //         {
+            //         bold: false,
+            //         text: 'Started a bicycle guiding business with a good friend. Helped draft the business strategy, define the brand, and led tours throughout Central Oregon. Acted as the technical/design/marketing lead; built the website, integrated booking software from FareHarbor, designed marketing materials, and created and ran the Google SEM campaign.'}
+            //     ],
+            //     skills: [
+            //         'Web design & development',
+            //         'Branding',
+            //         'Graphic design',
+            //         'Marketing',
+            //         'SEO',
+            //         'Google analytics',
+            //         'Copywriting',
+            //         'Tour guide'
+            //     ]
+            // },
             
             {
                 id: '3',

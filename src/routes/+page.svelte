@@ -99,7 +99,7 @@ onMount(() => {
         setTimeout(() => {
         introOverlay.style.opacity = "0";
         introOverlay.style.zIndex = "-1";
-            }, 300);
+            }, 700);
     }, 500);
 
     
