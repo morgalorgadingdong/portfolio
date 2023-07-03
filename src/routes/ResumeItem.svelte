@@ -176,6 +176,7 @@ h3 {
 
     .arrow {
         margin: 0 0.5rem;
+        max-width: 20px;
     }
 
     .arrow-container {
