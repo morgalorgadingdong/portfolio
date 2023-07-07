@@ -247,7 +247,7 @@ export const resume = [
                 degree: 'BS Mechanical Engineering',
                 nickname: 'osu',
                 picture: true,
-                graduated: '2017',
+                graduated: '2016',
                 gpa: '3.77',
                 title: 'Capstone Project: Rear Wing Design for Global Formula Racing (GFR)',
                 description: [
@@ -273,7 +273,7 @@ export const resume = [
                 title: 'Reliability Engineer',
                 nickname: 'spacex',
                 start: '2016',
-                end: '2017',
+                end: '2016',
                 picture: false,
                 description: [
                     {

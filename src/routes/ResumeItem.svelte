@@ -17,8 +17,11 @@
             <h3 class="text-start"><b>{item.title}</b> at {item.company}</h3>
         </div>
         
-        <h3 class="col-12 col-lg-auto text-end">{item.start} - {item.end}</h3>
-
+        {#if item.start == item.end}
+         <h3 class="col-12 col-lg-auto text-end">{item.start}</h3>
+         {:else}
+         <h3 class="col-12 col-lg-auto text-end">{item.start} - {item.end}</h3>
+        {/if}
         {#if isOpen}
         <ul transition:slide={{ duration: 500 }} class="col-12 pt-3 px-0 d-flex flex-wrap">
             {#if item.picture}

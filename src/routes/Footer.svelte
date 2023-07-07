@@ -43,6 +43,7 @@
     img {
         width: 100%;
         object-fit: contain;
+        max-width: 200px;
     }
 
     a {
