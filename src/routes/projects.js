@@ -105,6 +105,7 @@ export const projects = [
         description: 'A website for a Custom Van Company',
         date: '2022',
         pictures: 0,
+        url: 'https://www.otbfabrication.com/',
         stack: [
             'HTML',
             'CSS',
