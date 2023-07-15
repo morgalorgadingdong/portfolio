@@ -9,21 +9,26 @@ export const projects = [
         stack: [
             'Sveltekit',
             'TypeScript',
-            'Bootstrap'
+            
         ],
         bannerAlt: 'Oregon Bicycle Adventures',
         pictures: 0,
         skills: [
-            'Web design',
-            'Web development',
-            'Third party app integration',
+            'Design',
+            'Development',
+            'Full stack',
             'API integration',
             'SEO',
-            'Google Analytics',
-            'Google Search Console',
-            'Google SEM',
+            'SEM',
             'Copywriting',
+            'Content strategy',
             'Branding'
+        ],
+        tags: [
+            'Sveltekit',
+            'Typescript',
+            
+            'Firebase'
         ]
     },
     {
@@ -37,17 +42,25 @@ export const projects = [
         stack: [
             'HTML',
             'CSS',
-            'Bootstrap',
-            'JavaScript'
+            'JS',
+            
         ],
         skills: [
-            'Web design',
-            'Web development',
+            'Design',
+            'Development',
             'SEO',
-            'Google Analytics',
-            'Branding',
-            'Logo Design'
+            'Copywriting',
+            'Content strategy',
+            'Logo design',
+            'Branding'
+        ],
+        tags: [
+            'HTML',
+            'CSS',
+            'JS',
+            
         ]
+
     },
     {
         id: '3',
@@ -63,17 +76,23 @@ export const projects = [
             'MongoDB',
             'Mongoose',
             'EJS',
-            'Bootstrap'
+            
         ],
         skills: [
-            'Web design',
-            'Web development',
-            'Web app development',
+            'Design',
+            'Development',
+            'Full stack',
+            'API integration',
             'SEO',
-            'Google Analytics',
-            'Branding',
-            'Logo Design',
-            'API Integration',
+            'Content strategy',
+            'Copywriting'
+        ],
+        tags: [
+            'Node.js',
+            'Express.js',
+            'MongoDB',
+            'EJS',
+            
         ]
     },
     {
@@ -87,16 +106,24 @@ export const projects = [
         stack: [
             'Sveltekit',
             'TypeScript',
-            'Bootstrap'
+            
         ],
         skills: [
-            'Web design',
-            'Web development',
+            'Design',
+            'Development',
+            'Full stack',
             'SEO',
-            'Google Analytics',
-            'Branding',
-            'Logo Design'
+            'Copywriting',
+            'Content strategy',
+            'Logo design',
+            'Branding'
+        ],
+        tags: [
+            'Sveltekit',
+            'Typescript',
+            
         ]
+
     },
     {
         id: '5',
@@ -109,14 +136,21 @@ export const projects = [
         stack: [
             'HTML',
             'CSS',
-            'Bootstrap',
+            
             'JavaScript'
         ],
         skills: [
-            'Web design',
-            'Web development',
+            'Design',
+            'Development',
             'SEO',
-            'Google Analytics'
+            'Copywriting',
+            'Content strategy'
+        ],
+        tags: [
+            'HTML',
+            'CSS',
+            'JS',
+            
         ]
     },
     {
@@ -133,9 +167,13 @@ export const projects = [
             'JavaScript'
         ],
         skills: [
-            'Web design',
-            'Web development',
-            'Google Analytics'
+            'Design',
+            'Development'
+        ],
+        tags: [
+            'HTML',
+            'CSS',
+            'JS'
         ]
     },
 ]

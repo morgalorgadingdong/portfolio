@@ -10,7 +10,7 @@
         <div class="col-12 col-md-8 px-3 px-md-0 d-flex justify-content-start flex-wrap align-content-start">
             <img src="./img/introduction-text.png" alt="Hello, my name is Morgan" class="col-10 col-sm-8 my-3">
             <!-- <h3 class="mb-5 mt-0 mt-md-5 col-12 text-center">Hello, my name is Morgan</h3> -->
-            <p class="mb-5">I am a small business owner, designer and developer based in Bend, Oregon. Utlizing a broad range of skills developed over a diverse career, I help small businesses and entrepenuers take their brand's to the next level through thoughtful, tailor made websites and web applications.</p>
+            <p class="mb-5">I am a designer and developer based in Bend, Oregon. Utlizing a broad range of skills developed over a diverse career, I help small businesses and entrepenuers take their brand's to the next level through thoughtful, tailor made websites and web applications.</p>
             <img src="./img/about-mobile.png" alt="" class="d-block d-sm-none about-pic mobile">
             <img src="./img/about-desktop.png" alt="" class="d-none d-sm-block about-pic desktop">
             
