@@ -5,7 +5,7 @@
 <a href="{project.url}" target="_blank" rel="">
     <div class="img-container mb-3">
         <img src= { imgSrc } alt=""/>
-        <div class="badge-container px-3">
+        <div class="badge-container px-3 px-md-5">
             <div class="col-12">
                 <h4 class="col-12">Skills</h4>
                 {#each project.skills as skill}
@@ -43,8 +43,6 @@
         flex-wrap: wrap;
         justify-content: start;
         align-items: center;
-        padding: 0.5rem;
-        padding-top: 1rem;
         transition: all ease-in-out var(--animation-duration);
         opacity: 0;
     }   
@@ -128,19 +126,7 @@
     }
 
 
-
-    @media (hover: hover) {
-        a:hover .badge-container {
-            background-color: rgba(0,0,0,0.5);
-            opacity: 1;
-            transition: all var(--animation-duration) ease-in-out;
-        }
-
-        a:hover .badge {
-            
-            transition: all var(--animation-duration) ease-in-out;
-        }
-        
+    @media (pointer: fine), (hover: hover) {
         a:hover .img-container {
             box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.75);
         }
@@ -149,6 +135,20 @@
         }
         a:hover {
             cursor: pointer;
+        }
+    }
+
+
+
+    @media (min-width: 992px) {
+        a:hover .badge-container {
+            background-color: rgba(0,0,0,0.5);
+            opacity: 1;
+            transition: all var(--animation-duration) ease-in-out;
+        }
+
+        a:hover .badge {
+            transition: all var(--animation-duration) ease-in-out;
         }
     }
 
