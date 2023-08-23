@@ -5,7 +5,7 @@ export const resume = [
             {
                 id: '1',
                 company: 'Giddyup Digital',
-                title: 'Web Designer & Developer',
+                title: 'Full Stack Developer',
                 nickname: 'giddyup',
                 start: '2022',
                 end: 'Present',

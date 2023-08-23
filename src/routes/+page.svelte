@@ -253,6 +253,9 @@ function navigateToResumePage() {
         <h1 class="text-start">Morgan Folz</h1>
         <!-- <ul class="d-flex flex-wrap justify-content-start align-content-center align-items-start"> -->
         <ul class="d-flex flex-wrap flex-column justify-content-center">
+            <!-- <li class="col-12 mb-1 d-block ">engineer</li>
+            <li class="col-12 mb-1 d-block ">coach</li>
+            <li class="col-12 mb-1 d-block ">Problem Solver</li> -->
             <li class="col-12 mb-1 d-block d-md-none">full stack engineer</li>
             <li class="col-12 mb-1 d-none d-md-block">full<br> stack<br> engineer</li>
             <!-- <li class="col-12 mb-1"></li> -->
