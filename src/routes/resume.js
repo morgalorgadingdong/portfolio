@@ -3,12 +3,52 @@ export const resume = [
         section: 'Work Experience',
         items: [
             {
+                id: '0',
+                company: 'Procore Technologies',
+                title: 'Solutions Architect',
+                nickname: 'procore',
+                start: '2023',
+                end: 'Present',
+                picture: false,
+                description: [
+                    
+                    {
+                        bold: false,
+                        text: 'Architect custom integrations with the Procore platform.'
+                        // Consult with clients, understand their business and needs, design integrations, create proposals and contracts, and manage the development and relationship with the client.
+                    }
+                ],
+                skills: [
+                    'Integration Architecting',
+                    'Consulting',
+                    'API Integration'
+                ]
+            },
+            {
+                id: '3',
+                company: 'Bend Endurance Academy',
+                title: 'Mountain Bike Coach',
+                start: '2023',
+                end: 'Present',
+                description: [
+                    {
+                        bold: false,
+                        text: `Coached kids aged 6-12 during BEA's spring and summer mountain bike camps. Taught kids the fundamentals of mountain biking, including bike handling skills, trail etiquette, and basic bike maintenance. Managed groups of up to 10 kids, and worked with other coaches to ensure a safe and fun learning environment.`
+                    }
+                    ],
+                skills: [
+                    'Coaching',
+                    'Mentoring',
+                    'Conflict resolution'
+                ]
+            },
+            {
                 id: '1',
                 company: 'Giddyup Digital',
                 title: 'Full Stack Developer',
                 nickname: 'giddyup',
                 start: '2022',
-                end: 'Present',
+                end: '2023',
                 picture: false,
                 description: [
                     
@@ -54,24 +94,7 @@ export const resume = [
             //     ]
             // },
             
-            {
-                id: '3',
-                company: 'Bend Endurance Academy',
-                title: 'Mountain Bike Coach',
-                start: '2023',
-                end: 'Present',
-                description: [
-                    {
-                        bold: false,
-                        text: `Coached kids aged 6-12 during BEA's spring and summer mountain bike camps. Taught kids the fundamentals of mountain biking, including bike handling skills, trail etiquette, and basic bike maintenance. Managed groups of up to 10 kids, and worked with other coaches to ensure a safe and fun learning environment.`
-                    }
-                    ],
-                skills: [
-                    'Coaching',
-                    'Mentoring',
-                    'Conflict resolution'
-                ]
-            },
+            
             {
                 id: '4',
                 company: 'Mt. Bachelor Ski Resort',
