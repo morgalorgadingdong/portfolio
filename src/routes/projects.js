@@ -38,7 +38,7 @@ export const projects = [
         description: 'A simple static website for a web design and development company.',
         date: '2023',
         pictures: 0,
-        url: 'https://giddyup.digital',
+        url: 'https://giddyupdigital.com',
         stack: [
             'HTML',
             'CSS',
